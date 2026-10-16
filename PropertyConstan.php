@@ -11,6 +11,13 @@ class produk {
     //constant
     public const PAJAK = 0.11;
 
+    public function pajak() {
+        return self::PAJAK * 100;
+    }
+
+    public function total() {
+        return $this->harga + ($this->harga * self::PAJAK);
+    }
 }
  //object
  $produk = new produk ();
@@ -20,21 +27,20 @@ class produk {
  $produk -> harga = 10000000;
  $produk -> stok = 5;
 
- //HITUNG PAJAK
- $pajak = Produk::PAJAK * 100;
-
-$jumlahpajak = $produk -> harga * Produk::PAJAK;
-
-//total
-$total = $produk -> harga + $jumlahpajak;
-
 //hasil
+echo "produk: " . $produk -> nama;
+echo "<br>";
 
-echo "produk: " . $produk -> nama . "<br>";
-echo "kode: " . $produk -> kode . "<br>";
-echo "harga: " . $produk -> harga . "<br>";
-echo "stok: " . $produk -> stok . "<br>";
-echo "pajak: " . $pajak . "%" . "<br>";
+echo "kode: " . $produk -> kode ;
+echo "<br>";
 
+echo "harga: " . $produk -> harga ;
+echo "<br>";
 
-echo "total harga setelah pajak: Rp." . $total;
+echo "stok: " . $produk -> stok ;
+echo "<br>";
+
+echo "pajak: " . $produk -> pajak() . "%" ;
+echo "<br>";
+
+echo "total harga setelah pajak: Rp." . $produk -> total ();
